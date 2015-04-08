@@ -10,8 +10,7 @@ Param(
 
 # If missing, add pre-reqs of: AD DS Snap-Ins, Command-Line Tools and Active Directory module for Windows PowerShell
 $prerequisites = ('RSAT-ADDS-Tools', 'RSAT-AD-PowerShell')
-foreach($prerequisite in $prerequisites)
-{If ((Get-WindowsFeature -name $prerequisite).Installed){}else{Add-WindowsFeature -Name $prerequisite}}
+foreach($prerequisite in $prerequisites){If ((Get-WindowsFeature -name $prerequisite).Installed){}else{Add-WindowsFeature -Name $prerequisite}}
 
 # Get list of required computers
 Write-Verbose -Message 'Querying Active Directory for the list of computers.'
