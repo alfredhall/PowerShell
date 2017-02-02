@@ -1,4 +1,11 @@
-﻿$users = Import-Csv -Path 'C:\SRV\AD Usernames.csv'
+﻿<#
+    Version    : 1.0
+    File Name  : Add-ADUsersForenameSurname.ps1
+    Author     : @kieranwalsh
+    Date       : 2017-01-27
+#>
+ 
+ $users = Import-Csv -Path 'C:\SRV\AD Usernames.csv'
 $couldNotFind = @()
 
 foreach($user in $users)
@@ -11,7 +18,7 @@ foreach($user in $users)
     }
     catch
     {
-        $couldNotFind += $user.Username
+        $couldNotFind= $user.Username
     }
 }
 
