@@ -1,4 +1,4 @@
-﻿#Version 1.00.00 @KieranWalsh May 2017
+﻿#Version 1.01.00 @KieranWalsh May 2017
 # Computer Talk LTD
 
 $OffComputers = @()
@@ -62,13 +62,13 @@ foreach($Computer in $WindowsComputers)
   }
 }
 
-'Unpatched:' |Out-File -FilePath $log -Append
+"Unpatched ($($Unpatched.count)):" |Out-File -FilePath $log -Append
 $Unpatched -join (', ')  |Out-File -FilePath $log -Append
 '' |Out-File -FilePath $log -Append
-'Patched:' |Out-File -FilePath $log -Append
+"Patched ($($Patched.count)):" |Out-File -FilePath $log -Append
 $Patched -join (', ') |Out-File -FilePath $log -Append
 '' |Out-File -FilePath $log -Append
-'Off/Untested:'|Out-File -FilePath $log -Append
+"Off/Untested($(($OffComputers + $CheckFail).count)):"|Out-File -FilePath $log -Append
 ($OffComputers + $CheckFail | Sort-Object)-join (', ')|Out-File -FilePath $log -Append
 
 "Of the $($WindowsComputers.count) windows computers in active directory, $($OffComputers.count) were off, $($CheckFail.count) couldn't be checked, $($Unpatched.count) were unpatched and $($Patched.count) were successfully patched."
