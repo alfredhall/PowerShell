@@ -8,7 +8,7 @@
         A basic log of start/stop times is saved in the logpath and file that you specify. This will allow you to check that it has run.
         .NOTES
         Version    : 1.0
-        File Name  : Install-Panda.ps1  
+        File Name  : Install-Panda.ps1
         Author     : @kieranwalsh
         Date       : 2017-02-02
         .EXAMPLE
