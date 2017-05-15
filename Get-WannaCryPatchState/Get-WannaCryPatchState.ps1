@@ -1,7 +1,7 @@
-﻿#Version 1.04.00 @KieranWalsh May 2017
+﻿#Version 1.05.00 @KieranWalsh May 2017
 # Computer Talk LTD
 
-# Thanks to https://github.com/TLaborde for notifying me about missing patches.
+# Thanks to https://github.com/TLaborde, and https://www.facebook.com/BlackV for notifying me about missing patches.
 
 $OffComputers = @()
 $CheckFail = @()
