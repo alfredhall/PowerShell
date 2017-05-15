@@ -1,4 +1,4 @@
-﻿#Version 1.01.00 @KieranWalsh May 2017
+﻿#Version 1.03.00 @KieranWalsh May 2017
 # Computer Talk LTD
 
 $OffComputers = @()
@@ -8,7 +8,7 @@ $Unpatched = @()
 
 $log = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) -ChildPath "WannaCry patch state for $($ENV:USERDOMAIN).csv"
 
-$Patches = @('KB3205409', 'KB3210720', 'KB3210721', 'KB3212646', 'KB3213986', 'KB4012212', 'KB4012213', 'KB4012214', 'KB4012215', 'KB4012216', 'KB4012217', 'KB4012218', 'KB4012598', 'KB4012606', 'KB4013198', 'KB4013389', 'KB4013429', 'KB4015217', 'KB4015438', 'KB4015546', 'KB4015549', 'KB4015552', 'KB4016635', 'KB4019263', 'KB4019264', 'KB4019472')
+$Patches = @('KB3205409', 'KB3210720', 'KB3210721', 'KB3212646', 'KB3213986', 'KB4012212', 'KB4012213', 'KB4012214', 'KB4012215', 'KB4012216', 'KB4012217', 'KB4012218', 'KB4012598', 'KB4012606', 'KB4013198', 'KB4013389', 'KB4013429', 'KB4015217', 'KB4015438', 'KB4015546', 'KB4015549', 'KB4015550', 'KB4015552', 'KB4015553', 'KB4016635', 'KB4019215', 'KB4019263', 'KB4019264', 'KB4019472')
 
 $WindowsComputers = (Get-ADComputer -Filter {
     OperatingSystem -Like 'Windows*'
@@ -61,7 +61,8 @@ foreach($Computer in $WindowsComputers)
     "****`t$Computer `tUnable to connect." |Out-File -FilePath $log -Append
   }
 }
-
+' '
+"Summary for domain: $ENV:USERDNSDOMAIN"
 "Unpatched ($($Unpatched.count)):" |Out-File -FilePath $log -Append
 $Unpatched -join (', ')  |Out-File -FilePath $log -Append
 '' |Out-File -FilePath $log -Append
