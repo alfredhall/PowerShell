@@ -45,6 +45,7 @@ foreach($Computer in $WindowsComputers)
     {
       $CheckFail += $Computer
       "***`t$Computer `tUnable to gather hotfix information" |Out-File -FilePath $log -Append
+      continue
     }
     If($ThisComputerPatches)
     {
