@@ -1,4 +1,4 @@
-﻿#Version 1.06.00 @KieranWalsh May 2017
+﻿#Version 1.07.00 @KieranWalsh May 2017
 # Computer Talk LTD
 
 # Thanks to https://github.com/TLaborde, and https://www.facebook.com/BlackV for notifying me about missing patches.
@@ -13,7 +13,7 @@ $log = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) -ChildPath 
 $Patches = @('KB3205409', 'KB3210720', 'KB3210721', 'KB3212646', 'KB3213986', 'KB4012212', 'KB4012213', 'KB4012214', 'KB4012215', 'KB4012216', 'KB4012217', 'KB4012218', 'KB4012220', 'KB4012598', 'KB4012606', 'KB4013198', 'KB4013389', 'KB4013429', 'KB4015217', 'KB4015438', 'KB4015546', 'KB4015547', 'KB4015548', 'KB4015549', 'KB4015550', 'KB4015551', 'KB4015552', 'KB4015553', 'KB4015554', 'KB4016635', 'KB4019213', 'KB4019214', 'KB4019215', 'KB4019216', 'KB4019263', 'KB4019264', 'KB4019472')
 
 $WindowsComputers = (Get-ADComputer -Filter {
-    OperatingSystem -Like 'Windows*'
+    (OperatingSystem  -Like 'Windows*') -and (OperatingSystem -notlike '*Windows 10*')
 }).Name|
 Sort-Object
 
